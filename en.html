@@ -16,10 +16,10 @@
   <p class="lang"><a href="./">Lire cette page en français</a></p>
 
   <h1>Privacy Policy — Truffy</h1>
-  <p><em>Last updated: 11 August 2026</em></p>
+  <p><em>Last updated: 12 August 2026</em></p>
 
   <h2>In short</h2>
-  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. The only information that leaves the device is a technical report if the app crashes.</p>
+  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Three things leave the device, each detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, and your approximate location in order to estimate a travel time.</p>
 
   <h2>What stays on your phone</h2>
   <p>Everything you enter is saved in a local database, in the app's private storage:</p>
@@ -29,36 +29,56 @@
     <li>health information, medication, meals, habits;</li>
     <li>the contact details of owners and vets;</li>
     <li>the photos, copied into the app's private storage;</li>
+    <li>the walks you pin in the Walks tab: name, location, notes;</li>
     <li>your display preferences (theme, weight unit).</li>
   </ul>
-  <p>This data is never transmitted, neither to us nor to a third party. It is not backed up to any server: if you lose your phone, it is lost. Uninstalling the app deletes it permanently.</p>
+  <p>This data is never transmitted, neither to us nor to a third party — with one exception: the coordinates of a walk are sent to OpenRouteService when a travel time is calculated (see "The location of walks" below). We do not back it up to any server: uninstalling the app deletes it permanently, unless you made a backup yourself or Android's automatic backup is enabled (see the next section).</p>
 
-  <h2>What is transmitted: crash reports</h2>
-  <p>The app uses Firebase Crashlytics, a Google service, to report crashes automatically. It is the only component that communicates with the outside world.</p>
-  <p>When the app crashes, the report sent contains:</p>
+  <h2>Backup and export</h2>
+  <p>The app lets you save a backup file yourself, containing your records and their photos, wherever you choose: the phone's memory, an SD card, or a storage service you may have installed. The app writes that file where you tell it to and transmits it to no one.</p>
+  <p>What you then do with that file is up to you. If you place it in an online storage service, it is that service's terms which apply to its contents, not these.</p>
+  <p>Android also backs app data up automatically to the device's Google account, if you have enabled that feature in the system settings. This automatic backup covers your records and your preferences, <strong>but not the photos</strong>, which are deliberately excluded. It is managed by Android and not by the app; you can disable it in your phone's settings.</p>
+
+  <h2>What leaves the device</h2>
+  <p>Your animals' records never leave the device: no name, no photo, no note, no owner. There is no account, no synchronisation, and no server hosting them.</p>
+  <p>Three exceptions, all limited to the Walks tab and to crash reporting:</p>
   <ul>
-    <li>the technical trace of the error (the point in the code where the app stopped);</li>
-    <li>the device model, the Android version, the available memory and disk space, the screen orientation;</li>
-    <li>a randomly generated installation identifier, specific to Crashlytics. It is not an advertising identifier and it cannot be used to identify you; it serves to group several crashes coming from the same device.</li>
+    <li><strong>Map background (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website.</li>
+    <li><strong>Travel time (OpenRouteService).</strong> To work out how long it takes to reach a walk, your approximate location and that of the walks shown are sent to OpenRouteService. They are used for the calculation and are not kept by the app.</li>
+    <li><strong>Crash report (Firebase Crashlytics).</strong> If the app crashes, a technical report is sent: the trace of the error (the point in the code where the app stopped), the device model, the Android version, the available memory and disk space, the screen orientation, along with a randomly generated installation identifier specific to Crashlytics — it is not an advertising identifier and it cannot be used to identify you; it serves to group several crashes coming from the same device.</li>
   </ul>
-  <p>The report contains <strong>no data from your records</strong>: no animal name, no owner name, no note, no photo. That is a constraint written into the app's code.</p>
+  <p>The crash report contains <strong>no data from your records</strong>: no animal name, no owner name, no note, no photo, no location. That is a constraint written into the app's code.</p>
   <p>These reports are used solely to fix defects in the app. They are neither sold, nor used for advertising purposes, nor shared with third parties other than Google, which acts here as a technical subprocessor.</p>
   <p>Google keeps crash reports for 90 days, then deletes them. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
-  <p>Reports are queued locally and sent on the next connection: the app remains fully usable offline.</p>
+  <p>Crash reports are queued locally and sent on the next connection. The map background and the travel time calculation, on the other hand, need a connection directly: without one, the Walks tab shows your walks with no map background, and travel times are estimated as the crow flies rather than calculated by OpenRouteService.</p>
+  <p>The rest of the app — the records, the list, compatibility, the settings — remains fully usable offline.</p>
+
+  <h2>Your location</h2>
+  <ul>
+    <li>Truffy requests <strong>approximate</strong> location only — never precise location.</li>
+    <li>It serves a single purpose: estimating the travel time to a walk, in the Walks tab.</li>
+    <li>It is <strong>never stored</strong>, neither on the device nor anywhere else: it is sent to OpenRouteService at the time of the calculation, then forgotten.</li>
+    <li>You can refuse the permission. The Walks tab remains usable: only the travel times are missing, replaced by an as-the-crow-flies estimate.</li>
+  </ul>
+
+  <h2>The location of walks</h2>
+  <p>The walks you pin are places you choose — parks, woods, paths. They are saved on the device along with the rest of your data, and their coordinates are sent to OpenRouteService when a travel time is calculated. Do not pin your home if you would rather its coordinates were not used in that way.</p>
 
   <h2>Permissions</h2>
-  <p>The app requests no permissions. To add a photo, it opens either your phone's camera or the system photo picker: in both cases it is the system app that runs and handles its own permissions, and it returns only the image you chose. Internet access appears on the Play listing because the crash reporting component requires it.</p>
+  <p>A single permission is requested: approximate location, only when you open the Walks tab to estimate a travel time. Refusing it has no consequence for the rest of the app — you only lose the estimated travel times in that tab.</p>
+  <p>To add a photo, the app opens either your phone's camera or the system photo picker: in both cases it is the system app that runs and handles its own permissions, and it returns only the image you chose.</p>
+  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background and by the travel time calculation.</p>
 
   <h2>What the app does not do</h2>
   <ul>
     <li>No account, no sign-up, no password.</li>
     <li>No advertising, no analytics tool, no tracking.</li>
-    <li>No access to your location, your contacts, your messages or your files.</li>
+    <li>No access to your contacts, your messages or your files. See "Your location" above regarding geolocation.</li>
     <li>No data resold.</li>
   </ul>
 
   <h2>Your data, your rights</h2>
-  <p>Every record and every photo can be deleted from within the app. Uninstalling deletes all local data. Because crash reports are anonymous and carry no personal identifier, they cannot be traced back individually in order to be deleted on request; they disappear automatically after 90 days.</p>
+  <p>Every record, every photo and every walk can be deleted from within the app. Uninstalling deletes all local data. Since your location is never stored, there is nothing to delete. Because crash reports are anonymous and carry no personal identifier, they cannot be traced back individually in order to be deleted on request; they disappear automatically after 90 days.</p>
 
   <h2>Children</h2>
   <p>The app is not directed at children and does not knowingly collect any data concerning them.</p>

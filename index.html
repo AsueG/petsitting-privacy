@@ -16,10 +16,10 @@
   <p class="lang"><a href="en.html">Read this page in English</a></p>
 
   <h1>Politique de confidentialité — Truffy</h1>
-  <p><em>Dernière mise à jour : 11 août 2026</em></p>
+  <p><em>Dernière mise à jour : 12 août 2026</em></p>
 
   <h2>En résumé</h2>
-  <p>Truffy stocke vos fiches sur votre téléphone, et nulle part ailleurs. Il n'y a ni compte, ni inscription, ni publicité, ni pistage. La seule information qui quitte l'appareil est un rapport technique en cas de plantage de l'application.</p>
+  <p>Truffy stocke vos fiches sur votre téléphone, et nulle part ailleurs. Il n'y a ni compte, ni inscription, ni publicité, ni pistage. Trois choses quittent l'appareil, chacune détaillée plus loin : un rapport technique en cas de plantage, la zone de carte que vous regardez dans l'onglet Balades, et votre position approximative pour estimer un temps de trajet.</p>
 
   <h2>Ce qui reste sur votre téléphone</h2>
   <p>Tout ce que vous saisissez est enregistré dans une base de données locale, dans l'espace privé de l'application :</p>
@@ -29,36 +29,56 @@
     <li>les informations de santé, les médicaments, les repas, les habitudes ;</li>
     <li>les coordonnées des propriétaires et des vétérinaires ;</li>
     <li>les photos, copiées dans le stockage privé de l'application ;</li>
+    <li>les balades que vous épinglez dans l'onglet Balades : nom, position, notes ;</li>
     <li>vos préférences d'affichage (thème, unité de poids).</li>
   </ul>
-  <p>Ces données ne sont jamais transmises, ni à nous, ni à un tiers. Elles ne sont pas sauvegardées sur un serveur : si vous perdez votre téléphone, elles sont perdues. Désinstaller l'application les supprime définitivement.</p>
+  <p>Ces données ne sont jamais transmises, ni à nous, ni à un tiers — à une exception près : les coordonnées d'une balade sont envoyées à OpenRouteService au moment du calcul d'un temps de trajet (voir « La position des balades » plus bas). Nous ne les sauvegardons sur aucun serveur : désinstaller l'application les supprime définitivement, sauf si vous en avez fait une sauvegarde vous-même ou si la sauvegarde automatique d'Android est activée (voir la section suivante).</p>
 
-  <h2>Ce qui est transmis : les rapports de plantage</h2>
-  <p>L'application utilise Firebase Crashlytics, un service de Google, pour signaler automatiquement les plantages. C'est le seul composant qui communique avec l'extérieur.</p>
-  <p>Quand l'application plante, le rapport envoyé contient :</p>
+  <h2>Sauvegarde et export</h2>
+  <p>L'application vous permet d'enregistrer vous-même un fichier de sauvegarde contenant vos fiches et leurs photos, à l'endroit de votre choix : mémoire du téléphone, carte SD, ou un service de stockage que vous auriez installé. L'application écrit ce fichier là où vous le désignez et ne le transmet à personne.</p>
+  <p>Ce que vous faites ensuite de ce fichier vous appartient. Si vous le rangez dans un service de stockage en ligne, ce sont les conditions de ce service qui s'appliquent à son contenu, pas celles-ci.</p>
+  <p>Android sauvegarde par ailleurs automatiquement les données des applications vers le compte Google de l'appareil, si vous avez activé cette fonction dans les réglages du système. Cette sauvegarde automatique porte sur vos fiches et vos préférences, <strong>mais pas sur les photos</strong>, volontairement exclues. Elle est gérée par Android et non par l'application ; vous pouvez la désactiver dans les réglages de votre téléphone.</p>
+
+  <h2>Ce qui quitte l'appareil</h2>
+  <p>Les fiches de vos animaux ne quittent jamais l'appareil : ni nom, ni photo, ni note, ni propriétaire. Il n'y a ni compte, ni synchronisation, ni serveur qui les héberge.</p>
+  <p>Trois exceptions, toutes limitées à l'onglet Balades et au signalement de plantage :</p>
   <ul>
-    <li>la trace technique de l'erreur (l'endroit du code où l'application s'est arrêtée) ;</li>
-    <li>le modèle de l'appareil, la version d'Android, la mémoire et l'espace disque disponibles, l'orientation de l'écran ;</li>
-    <li>un identifiant d'installation généré aléatoirement, propre à Crashlytics. Ce n'est pas un identifiant publicitaire et il ne permet pas de vous identifier ; il sert à regrouper plusieurs plantages venant du même appareil.</li>
+    <li><strong>Fond de carte (MapTiler).</strong> Afficher une carte suppose de télécharger les tuiles de la zone regardée. MapTiler voit donc quelle zone vous consultez, comme n'importe quel site de cartes.</li>
+    <li><strong>Temps de trajet (OpenRouteService).</strong> Pour calculer combien de temps il faut pour aller à une balade, votre position approximative et celle des balades affichées sont envoyées à OpenRouteService. Elles servent au calcul et ne sont pas conservées par l'application.</li>
+    <li><strong>Rapport de plantage (Firebase Crashlytics).</strong> En cas de plantage, un rapport technique est envoyé : la trace de l'erreur (l'endroit du code où l'application s'est arrêtée), le modèle de l'appareil, la version d'Android, la mémoire et l'espace disque disponibles, l'orientation de l'écran, ainsi qu'un identifiant d'installation généré aléatoirement, propre à Crashlytics — ce n'est pas un identifiant publicitaire et il ne permet pas de vous identifier, il sert à regrouper plusieurs plantages venant du même appareil.</li>
   </ul>
-  <p>Le rapport ne contient <strong>aucune donnée de vos fiches</strong> : ni nom d'animal, ni nom de propriétaire, ni note, ni photo. C'est une contrainte inscrite dans le code de l'application.</p>
+  <p>Le rapport de plantage ne contient <strong>aucune donnée de vos fiches</strong> : ni nom d'animal, ni nom de propriétaire, ni note, ni photo, ni position. C'est une contrainte inscrite dans le code de l'application.</p>
   <p>Ces rapports servent uniquement à corriger les défauts de l'application. Ils ne sont ni vendus, ni utilisés à des fins publicitaires, ni partagés avec des tiers autres que Google, qui agit ici comme sous-traitant technique.</p>
   <p>Google conserve les rapports de plantage 90 jours, puis les supprime. Consultez la <a href="https://policies.google.com/privacy">politique de confidentialité de Google</a>.</p>
-  <p>Les rapports sont mis en file d'attente localement et envoyés à la prochaine connexion : l'application reste entièrement utilisable hors ligne.</p>
+  <p>Les rapports de plantage sont mis en file d'attente localement et envoyés à la prochaine connexion. Le fond de carte et le calcul des temps de trajet, eux, ont directement besoin d'une connexion : sans elle, l'onglet Balades affiche le carnet des balades sans fond de carte, et les temps de trajet sont estimés à vol d'oiseau plutôt que calculés par OpenRouteService.</p>
+  <p>Le reste de l'application — les fiches, la liste, la compatibilité, les réglages — reste entièrement utilisable hors ligne.</p>
+
+  <h2>Votre position</h2>
+  <ul>
+    <li>Truffy demande la position <strong>approximative</strong> uniquement — jamais la position précise.</li>
+    <li>Elle sert à une seule chose : estimer le temps de trajet jusqu'à une balade, dans l'onglet Balades.</li>
+    <li>Elle n'est <strong>jamais enregistrée</strong>, ni sur l'appareil ni ailleurs : elle est envoyée à OpenRouteService au moment du calcul, puis oubliée.</li>
+    <li>Vous pouvez refuser l'autorisation. L'onglet Balades reste utilisable : seuls les temps de trajet manquent, remplacés par une estimation à vol d'oiseau.</li>
+  </ul>
+
+  <h2>La position des balades</h2>
+  <p>Les balades que vous épinglez sont des lieux que vous choisissez — parcs, bois, chemins. Elles sont enregistrées sur l'appareil avec le reste de vos données, et leurs coordonnées sont envoyées à OpenRouteService au moment du calcul de trajet. N'épinglez pas votre domicile si vous ne souhaitez pas que ses coordonnées soient utilisées de cette façon.</p>
 
   <h2>Autorisations</h2>
-  <p>L'application ne demande aucune autorisation. Pour ajouter une photo, elle ouvre soit l'appareil photo de votre téléphone, soit le sélecteur de photos du système : dans les deux cas, c'est l'application système qui s'exécute et qui gère elle-même ses autorisations, et elle ne renvoie que l'image que vous avez choisie. L'accès à internet apparaît sur la fiche Play parce que le composant de rapport de plantage l'exige.</p>
+  <p>Une seule autorisation est demandée : la position approximative, uniquement quand vous ouvrez l'onglet Balades pour estimer un temps de trajet. Le refus est sans conséquence sur le reste de l'application — vous perdez seulement les temps de trajet estimés dans cet onglet.</p>
+  <p>Pour ajouter une photo, l'application ouvre soit l'appareil photo de votre téléphone, soit le sélecteur de photos du système : dans les deux cas, c'est l'application système qui s'exécute et qui gère elle-même ses autorisations, et elle ne renvoie que l'image que vous avez choisie.</p>
+  <p>L'accès à internet apparaît sur la fiche Play : il est utilisé par le rapport de plantage, par le fond de carte de l'onglet Balades et par le calcul des temps de trajet.</p>
 
   <h2>Ce que l'application ne fait pas</h2>
   <ul>
     <li>Aucun compte, aucune inscription, aucun mot de passe.</li>
     <li>Aucune publicité, aucun outil de mesure d'audience, aucun pistage.</li>
-    <li>Aucun accès à votre position, à vos contacts, à vos messages ou à vos fichiers.</li>
+    <li>Aucun accès à vos contacts, à vos messages ou à vos fichiers. Voir « Votre position » ci-dessus pour ce qui concerne la géolocalisation.</li>
     <li>Aucune donnée revendue.</li>
   </ul>
 
   <h2>Vos données, vos droits</h2>
-  <p>Chaque fiche et chaque photo peuvent être supprimées depuis l'application. Désinstaller supprime l'intégralité des données locales. Les rapports de plantage étant anonymes et dépourvus d'identifiant personnel, ils ne peuvent pas être retrouvés individuellement pour être supprimés à la demande ; ils disparaissent automatiquement au bout de 90 jours.</p>
+  <p>Chaque fiche, chaque photo et chaque balade peuvent être supprimées depuis l'application. Désinstaller supprime l'intégralité des données locales. Votre position n'étant jamais stockée, il n'y a rien à en supprimer. Les rapports de plantage étant anonymes et dépourvus d'identifiant personnel, ils ne peuvent pas être retrouvés individuellement pour être supprimés à la demande ; ils disparaissent automatiquement au bout de 90 jours.</p>
 
   <h2>Enfants</h2>
   <p>L'application ne s'adresse pas aux enfants et ne collecte sciemment aucune donnée les concernant.</p>
