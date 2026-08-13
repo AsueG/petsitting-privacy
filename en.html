@@ -16,10 +16,10 @@
   <p class="lang"><a href="./">Lire cette page en français</a></p>
 
   <h1>Privacy Policy — Truffy</h1>
-  <p><em>Last updated: 12 August 2026</em></p>
+  <p><em>Last updated: 13 August 2026</em></p>
 
   <h2>In short</h2>
-  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Three things leave the device, each detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, and your approximate location in order to estimate a travel time.</p>
+  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Four things leave the device, each detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time.</p>
 
   <h2>What stays on your phone</h2>
   <p>Everything you enter is saved in a local database, in the app's private storage:</p>
@@ -29,10 +29,10 @@
     <li>health information, medication, meals, habits;</li>
     <li>the contact details of owners and vets;</li>
     <li>the photos, copied into the app's private storage;</li>
-    <li>the walks you pin in the Walks tab: name, location, notes;</li>
+    <li>the walks you pin in the Walks tab: name, location, address, notes;</li>
     <li>your display preferences (theme, weight unit).</li>
   </ul>
-  <p>This data is never transmitted, neither to us nor to a third party — with one exception: the coordinates of a walk are sent to OpenRouteService when a travel time is calculated (see "The location of walks" below). We do not back it up to any server: uninstalling the app deletes it permanently, unless you made a backup yourself or Android's automatic backup is enabled (see the next section).</p>
+  <p>This data is never transmitted, neither to us nor to a third party — with two exceptions: the coordinates of a walk are sent to MapTiler once, to look up its address, and to OpenRouteService every time a travel time is calculated (see "The location of walks" below). We do not back it up to any server: uninstalling the app deletes it permanently, unless you made a backup yourself or Android's automatic backup is enabled (see the next section).</p>
 
   <h2>Backup and export</h2>
   <p>The app lets you save a backup file yourself, containing your records, their photos, the owners and your walk locations — including those locations' coordinates — wherever you choose: the phone's memory, an SD card, or a storage service you may have installed. The app writes that file where you tell it to and transmits it to no one.</p>
@@ -43,7 +43,7 @@
   <p>Your animals' records never leave the device: no name, no photo, no note, no owner. There is no account, no synchronisation, and no server hosting them.</p>
   <p>Three exceptions, all limited to the Walks tab and to crash reporting:</p>
   <ul>
-    <li><strong>Map background (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website.</li>
+    <li><strong>Map background and addresses (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website. When you pin a walk, that point's coordinates are also sent to it once, to look up the matching postal address and save you typing it. They are used for that lookup alone and are not kept by the app.</li>
     <li><strong>Travel time (OpenRouteService).</strong> To work out how long it takes to reach a walk, your approximate location and that of the walks shown are sent to OpenRouteService. They are used for the calculation and are not kept by the app.</li>
     <li><strong>Crash report (Firebase Crashlytics).</strong> If the app crashes, a technical report is sent: the trace of the error (the point in the code where the app stopped), the device model, the Android version, the available memory and disk space, the screen orientation, along with a randomly generated installation identifier specific to Crashlytics — it is not an advertising identifier and it cannot be used to identify you; it serves to group several crashes coming from the same device.</li>
   </ul>
@@ -62,12 +62,12 @@
   </ul>
 
   <h2>The location of walks</h2>
-  <p>The walks you pin are places you choose — parks, woods, paths. They are saved on the device along with the rest of your data, and their coordinates are sent to OpenRouteService when a travel time is calculated. Do not pin your home if you would rather its coordinates were not used in that way.</p>
+  <p>The walks you pin are places you choose — parks, woods, paths. They are saved on the device along with the rest of your data, and their coordinates are sent to MapTiler once, to look up their address, and to OpenRouteService every time a travel time is calculated. Do not pin your home if you would rather its coordinates were not used in that way.</p>
 
   <h2>Permissions</h2>
   <p>A single permission is requested: approximate location, only when you open the Walks tab to estimate a travel time. Refusing it has no consequence for the rest of the app — you only lose the estimated travel times in that tab.</p>
   <p>To add a photo, the app opens either your phone's camera or the system photo picker: in both cases it is the system app that runs and handles its own permissions, and it returns only the image you chose.</p>
-  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background and by the travel time calculation.</p>
+  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background and reverse geocoding, and by the travel time calculation.</p>
 
   <h2>What the app does not do</h2>
   <ul>
