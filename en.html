@@ -16,10 +16,10 @@
   <p class="lang"><a href="./">Lire cette page en français</a></p>
 
   <h1>Privacy Policy — Truffy</h1>
-  <p><em>Last updated: 15 August 2026</em></p>
+  <p><em>Last updated: 16 August 2026</em></p>
 
   <h2>In short</h2>
-  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Five things leave the device, each detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the place name you type into the search there, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time.</p>
+  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Six things leave the device, each detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the place name you type into the search there, the name of the country of the region set on your phone, sent once to frame the map when it has nothing to show yet, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time.</p>
 
   <h2>What stays on your phone</h2>
   <p>Everything you enter is saved in a local database, in the app's private storage:</p>
@@ -34,7 +34,7 @@
     <li>your settings: theme, weight unit, distance unit, currency, and what you do with animals — sit for others, have yours sat for, or both;</li>
     <li>a flag recording that the introduction has already been shown, so it is not shown again.</li>
   </ul>
-  <p>This data is never transmitted, neither to us nor to a third party — with two exceptions: the coordinates of a walk are sent to MapTiler once, to look up its address, and to OpenRouteService every time a travel time is calculated (see "The location of walks" below). The place name you type into the search goes to MapTiler in the same way, without being recorded or kept. We do not back it up to any server: uninstalling the app deletes it permanently, unless you made a backup yourself or Android's automatic backup is enabled (see the next section).</p>
+  <p>This data is never transmitted, neither to us nor to a third party — with two exceptions: the coordinates of a walk are sent to MapTiler once, to look up its address, and to OpenRouteService every time a travel time is calculated (see "The location of walks" below). The place name you type into the search goes to MapTiler in the same way, without being recorded or kept, as does the name of the country of the region set on your phone, sent once to frame the map when the tab opens. We do not back it up to any server: uninstalling the app deletes it permanently, unless you made a backup yourself or Android's automatic backup is enabled (see the next section).</p>
 
   <h2>Backup and export</h2>
   <p>The app lets you save a backup file yourself, containing your records, their photos, the owners, your sitters and your walk locations — including those locations' coordinates — wherever you choose: the phone's memory, an SD card, or a storage service you may have installed. The app writes that file where you tell it to and transmits it to no one.</p>
@@ -46,7 +46,7 @@
   <p>Four exceptions, all limited to the Walks tab and to crash reporting:</p>
   <ul>
     <li><strong>Map background and addresses (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website. When you pin a walk, that point's coordinates are also sent to it once, to look up the matching postal address and save you typing it. They are used for that lookup alone and are not kept by the app.</li>
-    <li><strong>Place search (MapTiler).</strong> When you type a place name in the Walks tab, that text is sent to MapTiler to find the matching place, along with the centre of the map being shown so that nearby results come first. The text is used for that search alone: it is neither recorded on the device nor kept by the app, and no search history is built up.</li>
+    <li><strong>Place search (MapTiler).</strong> When you type a place name in the Walks tab, that text is sent to MapTiler to find the matching place, along with the centre of the map being shown so that nearby results come first. The text is used for that search alone: it is neither recorded on the device nor kept by the app, and no search history is built up. The same search is run once without you typing anything, when the Walks tab opens and no walk has been pinned yet: what is sent then is the name of the country of the region set on your phone, so that the map is framed on your country rather than on a view of the whole world. That is a device setting and not a location measurement: it does not say where you are within the country.</li>
     <li><strong>Travel time (OpenRouteService).</strong> To work out how long it takes to reach a walk, your approximate location and that of the walks shown are sent to OpenRouteService. They are used for the calculation and are not kept by the app.</li>
     <li><strong>Crash report (Firebase Crashlytics).</strong> If the app crashes, a technical report is sent: the trace of the error (the point in the code where the app stopped), the device model, the Android version, the available memory and disk space, the screen orientation, along with a randomly generated installation identifier specific to Crashlytics — it is not an advertising identifier and it cannot be used to identify you; it serves to group several crashes coming from the same device.</li>
   </ul>
