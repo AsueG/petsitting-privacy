@@ -16,10 +16,10 @@
   <p class="lang"><a href="./">Lire cette page en français</a></p>
 
   <h1>Privacy Policy — Truffy</h1>
-  <p><em>Last updated: 16 August 2026</em></p>
+  <p><em>Last updated: 17 August 2026</em></p>
 
   <h2>In short</h2>
-  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Here is everything that leaves the device, each case detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the place name you type into the search there, the name of the country of the region set on your phone, sent once to frame the map when it has nothing to show yet, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time. On top of that there is one output you trigger yourself: asking for directions to a walk hands its location to your phone's maps app.</p>
+  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Here is everything that leaves the device, each case detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the place name you type into the search there, the name of the country of the region set on your phone, sent once to frame the map when it has nothing to show yet, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time. On top of that there are outputs you trigger yourself: tapping "Search here" sends OpenStreetMap the visible map frame to find named green spaces, and asking for directions to a walk hands its location to your phone's maps app.</p>
 
   <h2>What stays on your phone</h2>
   <p>Everything you enter is saved in a local database, in the app's private storage:</p>
@@ -48,6 +48,7 @@
     <li><strong>Map background and addresses (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website. When you pin a walk, that point's coordinates are also sent to it once, to look up the matching postal address and save you typing it. They are used for that lookup alone and are not kept by the app.</li>
     <li><strong>Place search (MapTiler).</strong> When you type a place name in the Walks tab, that text is sent to MapTiler to find the matching place, along with the centre of the map being shown so that nearby results come first. The text is used for that search alone: it is neither recorded on the device nor kept by the app, and no search history is built up. The same search is run once without you typing anything, when the Walks tab opens and no walk has been pinned yet: what is sent then is the name of the country of the region set on your phone, so that the map is framed on your country rather than on a view of the whole world. That is a device setting and not a location measurement: it does not say where you are within the country.</li>
     <li><strong>Travel time (OpenRouteService).</strong> To work out how long it takes to reach a walk, your approximate location and that of the walks shown are sent to OpenRouteService. They are used for the calculation and are not kept by the app.</li>
+    <li><strong>OpenStreetMap (Overpass API).</strong> When you tap "Search here" in the Walks tab, the app asks OpenStreetMap for the named green spaces within the visible frame. What is sent is <strong>the map frame you are looking at</strong>, and nothing else: not a walk's name, not a note, not your location. Without that tap, no request is sent. OpenStreetMap is a collaborative mapping project; the place names you are shown come from its contributors.</li>
     <li><strong>Directions to a walk (your phone's maps app).</strong> When you tap the directions button on a walk, its coordinates are handed to the maps app you chose in the system settings, so that it can take you there. Nothing else is passed to it: not the walk's name, not its address, not your note. See "The location of walks" below.</li>
     <li><strong>Crash report (Firebase Crashlytics).</strong> If the app crashes, a technical report is sent: the trace of the error (the point in the code where the app stopped), the device model, the Android version, the available memory and disk space, the screen orientation, along with a randomly generated installation identifier specific to Crashlytics — it is not an advertising identifier and it cannot be used to identify you; it serves to group several crashes coming from the same device.</li>
   </ul>
@@ -72,7 +73,7 @@
   <h2>Permissions</h2>
   <p>A single permission is requested: approximate location, only when you open the Walks tab to estimate a travel time. Refusing it has no consequence for the rest of the app — you only lose the estimated travel times in that tab.</p>
   <p>To add a photo, the app opens either your phone's camera or the system photo picker: in both cases it is the system app that runs and handles its own permissions, and it returns only the image you chose.</p>
-  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background, place search and reverse geocoding, and by the travel time calculation.</p>
+  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background, place search and reverse geocoding, by the "Search here" green-space search (OpenStreetMap), and by the travel time calculation.</p>
 
   <h2>What the app does not do</h2>
   <ul>
