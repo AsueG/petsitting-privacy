@@ -16,10 +16,10 @@
   <p class="lang"><a href="./">Lire cette page en français</a></p>
 
   <h1>Privacy Policy — Truffy</h1>
-  <p><em>Last updated: 17 August 2026</em></p>
+  <p><em>Last updated: 19 August 2026</em></p>
 
   <h2>In short</h2>
-  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no tracking. Here is everything that leaves the device, each case detailed below: a technical report if the app crashes, the map area you are looking at in the Walks tab, the place name you type into the search there, the name of the country of the region set on your phone, sent once to frame the map when it has nothing to show yet, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time. On top of that there are outputs you trigger yourself: tapping "Search here" sends OpenStreetMap the visible map frame to find named green spaces, and asking for directions to a walk hands its location to your phone's maps app.</p>
+  <p>Truffy stores your records on your phone, and nowhere else. There is no account, no sign-up, no advertising and no advertising identifier. Here is everything that leaves the device, each case detailed below: a technical report if the app crashes, a measurement of your use of the app — the screens you visit and the actions you take, enabled by default and which you can turn off in the settings —, the map area you are looking at in the Walks tab, the place name you type into the search there, the name of the country of the region set on your phone, sent once to frame the map when it has nothing to show yet, the coordinates of a walk you pin, sent once to look up its address, and your approximate location in order to estimate a travel time. On top of that there are outputs you trigger yourself: tapping "Search here" sends OpenStreetMap the visible map frame to find named green spaces, and asking for directions to a walk hands its location to your phone's maps app. Usage measurement goes out with deliberate exceptions to the "nothing from a record leaves" rule: the amount of a rate noted on a record goes out exactly as entered, and the length of a note goes out without ever its text. Those exceptions are detailed below.</p>
 
   <h2>What stays on your phone</h2>
   <p>Everything you enter is saved in a local database, in the app's private storage:</p>
@@ -43,8 +43,9 @@
 
   <h2>What leaves the device</h2>
   <p>Your animals' and your sitters' records never leave the device: no name, no photo, no note, no owner. There is no account, no synchronisation, and no server hosting them.</p>
-  <p>Everything that leaves the device is limited to the Walks tab and to crash reporting, and never carries the contents of a record:</p>
+  <p>Everything that leaves the device is limited to the Walks tab, to crash reporting and to usage measurement, and never carries the name of an animal or an owner, a breed, a coordinate or the text of a note — with the deliberate exceptions detailed below alongside usage measurement: the amount of a rate noted on a record goes out exactly as entered, and the length of a note goes out without ever its contents:</p>
   <ul>
+    <li><strong>Usage measurement (Firebase Analytics).</strong> The app measures the screens you visit and the actions you take — opening a record, filtering or sorting the list, running a cross-check, exporting or restoring a backup, and so on — in order to know what is useful and what is not. This measurement is <strong>enabled by default</strong>; you can turn it off in the settings, with no effect on the rest of the app nor on the crash reporting below, which stays active separately. It never carries the name of an animal or an owner, a note, a breed or a coordinate, with the following deliberate exceptions: the amount of a rate you note on an animal or sitter record goes out as it is, with its unit and its currency, and the length of a note goes out with the field concerned (health, habits, and so on) — never the text of the note.</li>
     <li><strong>Map background and addresses (MapTiler).</strong> Displaying a map means downloading the tiles for the area being viewed. MapTiler therefore sees which area you are looking at, like any map website. When you pin a walk, that point's coordinates are also sent to it once, to look up the matching postal address and save you typing it. They are used for that lookup alone and are not kept by the app.</li>
     <li><strong>Place search (MapTiler).</strong> When you type a place name in the Walks tab, that text is sent to MapTiler to find the matching place, along with the centre of the map being shown so that nearby results come first. The text is used for that search alone: it is neither recorded on the device nor kept by the app, and no search history is built up. The same search is run once without you typing anything, when the Walks tab opens and no walk has been pinned yet: what is sent then is the name of the country of the region set on your phone, so that the map is framed on your country rather than on a view of the whole world. That is a device setting and not a location measurement: it does not say where you are within the country.</li>
     <li><strong>Travel time (OpenRouteService).</strong> To work out how long it takes to reach a walk, your approximate location and that of the walks shown are sent to OpenRouteService. They are used for the calculation and are not kept by the app.</li>
@@ -55,7 +56,8 @@
   <p>The crash report contains <strong>no data from your records</strong>: no animal name, no owner name, no note, no photo, no location. That is a constraint written into the app's code.</p>
   <p>These reports are used solely to fix defects in the app. They are neither sold, nor used for advertising purposes, nor shared with third parties other than Google, which acts here as a technical subprocessor.</p>
   <p>Google keeps crash reports for 90 days, then deletes them. See <a href="https://policies.google.com/privacy">Google's privacy policy</a>.</p>
-  <p>Crash reports are queued locally and sent on the next connection. The map background and the travel time calculation, on the other hand, need a connection directly: without one, the Walks tab shows your walks with no map background, the place search returns nothing, and travel times are estimated as the crow flies rather than calculated by OpenRouteService.</p>
+  <p>Usage measurement (Firebase Analytics) follows the same rules as the crash report: it serves solely to know which screens and which actions are useful, it is neither sold, nor used for advertising purposes, nor shared with third parties other than Google, which acts here too as a technical subprocessor. Google sets its retention period, documented in its own privacy policy above.</p>
+  <p>Crash reports are queued locally and sent on the next connection. Usage measurement follows the same principle: nothing is lost if the device is offline at the time of the action, the event going out on the next available connection. The map background and the travel time calculation, on the other hand, need a connection directly: without one, the Walks tab shows your walks with no map background, the place search returns nothing, and travel times are estimated as the crow flies rather than calculated by OpenRouteService.</p>
   <p>The rest of the app — the records, the list, compatibility, the settings — remains fully usable offline.</p>
 
   <h2>Your location</h2>
@@ -73,18 +75,18 @@
   <h2>Permissions</h2>
   <p>A single permission is requested: approximate location, only when you open the Walks tab to estimate a travel time. Refusing it has no consequence for the rest of the app — you only lose the estimated travel times in that tab.</p>
   <p>To add a photo, the app opens either your phone's camera or the system photo picker: in both cases it is the system app that runs and handles its own permissions, and it returns only the image you chose.</p>
-  <p>Internet access appears on the Play listing: it is used by crash reporting, by the Walks tab's map background, place search and reverse geocoding, by the "Search here" green-space search (OpenStreetMap), and by the travel time calculation.</p>
+  <p>Internet access appears on the Play listing: it is used by crash reporting, by usage measurement, by the Walks tab's map background, place search and reverse geocoding, by the "Search here" green-space search (OpenStreetMap), and by the travel time calculation.</p>
 
   <h2>What the app does not do</h2>
   <ul>
     <li>No account, no sign-up, no password.</li>
-    <li>No advertising, no analytics tool, no tracking.</li>
+    <li>No advertising, no advertising identifier, no sharing of your records for advertising purposes. Usage measurement does exist — see "Usage measurement" under "What leaves the device" above —, enabled by default and switchable off in the settings.</li>
     <li>No access to your contacts, your messages or your files. See "Your location" above regarding geolocation.</li>
     <li>No data resold.</li>
   </ul>
 
   <h2>Your data, your rights</h2>
-  <p>Every record, every photo and every walk can be deleted from within the app. Uninstalling deletes all local data. Since your location is never stored, there is nothing to delete. Because crash reports are anonymous and carry no personal identifier, they cannot be traced back individually in order to be deleted on request; they disappear automatically after 90 days.</p>
+  <p>Every record, every photo and every walk can be deleted from within the app. Uninstalling deletes all local data. Since your location is never stored, there is nothing to delete. Because crash reports are anonymous and carry no personal identifier, they cannot be traced back individually in order to be deleted on request; they disappear automatically after 90 days. Usage measurement, for its part, is under your control upstream: the switch in the settings stops it at any time, which prevents any new event from going out, but does not withdraw those already sent — being anonymous like the crash reports, they cannot be traced back individually either.</p>
 
   <h2>Children</h2>
   <p>The app is not directed at children and does not knowingly collect any data concerning them.</p>
